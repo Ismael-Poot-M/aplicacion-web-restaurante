@@ -1,0 +1,185 @@
+:root {
+
+    --fuenteHeading: "AW Conqueror Didot Light";
+    --fuenteParrafos: museo, serif;
+
+    --blanco: white;
+    --negro: black;
+  
+}
+
+body{
+  font-family: var(--fuenteParrafos);
+  color: var(--blanco);
+  font-size: 1.6rem;
+  line-height: 2;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url(../images/fondo.png);
+}
+
+p{
+    font-size: 15px;
+}
+
+.nosotros{
+    width: 90%;
+}
+
+.idea{
+    width: 60%;
+}
+
+.TDL{
+    width: 100%;
+}
+
+.lobo{
+    width: 30%;
+}
+
+.redes{
+   width: 20%; 
+}
+
+.mapa{
+    width: 50%;
+}
+
+.contacto{
+    width: 50%;
+}
+
+.texto{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.enlaces{
+    font-size: 17px;
+    padding-right: 15px;
+}
+
+.fondo{
+    background-image: url(../images/fondo_eventos.jpg);
+}
+
+
+.nav-link{
+    font-size: 18px;
+}
+
+.titulo{
+    padding: 30px;
+}
+
+.carousel {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+/* Cada slide actúa como contenedor relativo */
+.carousel-item {
+    position: relative;
+    width: 100%;
+}
+
+/* Imagen del logo centrada */
+.imagen-superior {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centramos un poco más arriba */
+    width: 60%; /* Ajustable */
+    max-width: 60%; /* evita que crezca demasiado */
+}
+
+/* Botón centrado debajo del logo */
+.boton-superior {
+    position: absolute;
+    top: 60%; /* un poco debajo del logo */
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background-color: transparent;
+    color: var(--blanco);
+    border: 2px solid var(--blanco);
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+    width: auto; /* ya no porcentaje fijo */
+    cursor: pointer;
+}
+
+/* Efecto hover */
+.boton-superior:hover {
+    background-color: transparent;
+}
+
+/* 📱 Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .imagen-superior {
+        width: 70%;
+        transform: translate(-50%, -70%);
+    }
+
+    .boton-superior {
+        top: 65%;
+        font-size: 0.9rem;
+        padding: 8px 18px;
+    }
+
+    .contacto{
+        width: 80%;
+    }
+
+    .texto-contacto{
+        font-size: 19px;
+    }
+
+    .logo_footer{
+        width: 100%;
+    }
+
+    .redes{
+   width: 15%; 
+}
+}
+
+@media (max-width: 480px) {
+    .imagen-superior {
+        width: 80%;
+        transform: translate(-50%, -65%);
+    }
+
+    .boton-superior {
+        top: 70%;
+        font-size: 0.8rem;
+        padding: 6px 15px;
+    }
+
+    .contacto{
+        width: 170%;
+        max-width: 100px;
+        margin-bottom: 10px;
+    }
+
+    .texto-contacto{
+        font-size: 12px;
+    }
+
+    .logo_footer{
+        width: 60%;
+    }
+
+    .redes{
+   width: 10%; 
+}
+}

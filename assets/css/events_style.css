@@ -1,0 +1,72 @@
+:root {
+
+    --fuenteHeading: "AW Conqueror Didot Light";
+    --fuenteParrafos: museo, serif;
+
+    --blanco: white;
+    --negro: black;
+  
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url(../images/fondo.png);
+    }
+
+    .logo{
+    width: 65%;
+}
+
+.card{
+    border: none;
+}
+
+.titulo{
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+
+.btn-primary{
+    margin: 3px;
+    background-color: #210047;
+    border: none;
+
+}
+
+.form-control{
+    background-color: #7700ff;
+    color: var(--blanco);
+    border: none;
+}
+
+.columnas{
+    background-color: #210047;
+    color: var(--blanco);
+    border: 1px solid #210047;
+}
+
+.column{
+    background-color: #48009b;
+    color: var(--blanco);
+    border-color: #210047;
+    border: 1px solid #210047;
+}
+
+.registros{
+    margin: 10px;
+    border: none;
+}
+
+.volver{
+    width: 40px;
+    margin: 15px;
+}
+
+.textarea{
+    height: 120px;
+}

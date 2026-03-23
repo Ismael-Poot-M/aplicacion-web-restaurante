@@ -1,0 +1,85 @@
+:root {
+
+    --fuenteHeading: "AW Conqueror Didot Light";
+    --fuenteParrafos: museo, serif;
+
+    --blanco: white;
+    --negro: black;
+  
+}
+
+.titulo{
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+body{
+    background-image: url(../images/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.logo{
+    width: 20%;
+}
+
+.texto_superior{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centramos un poco más arriba */
+    color: var(--blanco);
+    font-family: var(--fuenteHeading);
+    font-size: 34px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px var(--negro);   
+    justify-content: center;
+    text-align: center;
+    align-items: center; 
+}
+
+/* 📱 Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .texto_superior{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centramos un poco más arriba */
+    color: white;
+    font-family: var(--fuenteHeading);
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px black;   
+    justify-content: center;
+    text-align: center;
+    align-items: center; 
+}
+
+.logo{
+    width: 30%;
+}
+}
+
+@media (max-width: 480px) {
+    .texto_superior{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centramos un poco más arriba */
+    color: white;
+    font-family: var(--fuenteHeading);
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px black;   
+    justify-content: center;
+    text-align: center;
+    align-items: center; 
+}
+
+.logo{
+    width: 40%;
+}
+}

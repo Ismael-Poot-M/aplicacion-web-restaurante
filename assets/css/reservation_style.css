@@ -1,0 +1,96 @@
+:root {
+
+    --fuenteHeading: "AW Conqueror Didot Light";
+    --fuenteParrafos: museo, serif;
+
+    --blanco: white;
+    --negro: black;
+  
+}
+
+body {
+            background-image: url(../images/fondo.png);
+            background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #mapa {
+            width: 100%;
+            height: 1200px;
+            position: relative;
+            background-color: #210047;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: auto;
+            touch-action: pan-x pan-y;
+        }
+
+
+
+        .objeto:hover {
+            transform: scale(1.05);
+        }
+
+        .titulo{
+            color: white;
+        }
+
+
+        .objeto {
+            position: absolute;
+            cursor: pointer;
+        }
+
+       .objeto img {
+            display: block;
+            max-width: none;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        .boton{
+            background-color: #2c015c;
+            border: none;
+            margin: 20px;
+            box-shadow: 2px 2px 4px var(--blanco);
+        }
+
+        .volver{
+            width: 40px;
+            margin: 15px;
+        }
+
+
+        .boton:hover{
+            background-color: #1c003c;
+        }
+
+        .labelNumero {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 20px;
+            /* mejora visibilidad sobre la imagen */
+            pointer-events: none;
+            /* para que el texto no interfiera con drag & drop */
+        }
+
+
+
+        .resizable {
+            border: none;
+        }
+
+        #guardarPosiciones {
+            display: block;
+            margin: 20px auto;
+        }
