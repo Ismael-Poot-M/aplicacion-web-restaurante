@@ -23,34 +23,28 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
 <body>
 
-
-
-<div class="container text-center">
-  <div class="row align-items-start">
-    <div class="col">
-        <a href="admin_panel.php"><img class="volver" src="../assets/images/retroceso.png"></a>
-
-    </div>
-    <div class="col">
-      <div class="container text-center">
+    <div class="container text-center">
         <div class="row align-items-start">
-
             <div class="col">
-                <a href="../pages/index.php"><img class="logo" src="../assets/images/logo-nombre-horizontal-blanco.png"></a>
-            </div>
+                <a href="admin_panel.php"><img class="volver" src="../assets/images/retroceso.png"></a>
 
+            </div>
+            <div class="col">
+                <div class="container text-center">
+                    <div class="row align-items-start">
+
+                        <div class="col">
+                            <a href="../pages/index.php"><img class="logo" src="../assets/images/logo-nombre-horizontal-blanco.png"></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+
+            </div>
         </div>
     </div>
-    </div>
-    <div class="col">
-      
-    </div>
-  </div>
-</div>
-
-
-
-    
 
     <div class="container text-center">
         <div class="row align-items-start">
@@ -62,28 +56,24 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         </div>
     </div>
 
-
-
-
     <div class="container text-center">
         <div class="row align-items-center">
-            
+
             <div class="col">
                 <div class="card">
                     <div class="card-body column">
                         <form class="row g-3" method="POST" action="guardar_evento.php">
-                            <div class="col-12">
+                            <div class="col-md-6">
                                 <label for="inputAddress" class="form-label">Titulo</label>
                                 <input type="text" class="form-control" name="title" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" name="date" required>
                             </div>
                             <div class="col-12">
                                 <label for="inputAddress" class="form-label">Descripción</label>
                                 <textarea class="form-control textarea" name="description" required></textarea>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="inputCity" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" name="date" required>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary" name="save">Guardar</button>
@@ -92,7 +82,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="row align-items-center">
@@ -131,11 +121,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
         </div>
     </div>
-
-
-
-
-
 </body>
 
 </html>

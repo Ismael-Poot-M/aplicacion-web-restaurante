@@ -47,7 +47,8 @@ $event = $result->fetch_assoc();
                 <?php if ($event): ?>
                     <div class="card">
                         <div class="card-body">
-                            <h3><?php echo $event['title']; ?></h3> <h3><?php echo $event['date'];?></h3>
+                            <h3><?php echo $event['title']; ?></h3>
+                            <h3><?php echo $event['date']; ?></h3>
                             <p><?php echo $event['description']; ?></p>
                         </div>
                     </div>
