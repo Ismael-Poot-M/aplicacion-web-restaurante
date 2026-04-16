@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Eliminar todas las variables de sesión
+// Limpiar sesión
 $_SESSION = [];
-
-// Destruir la sesión
 session_destroy();
 
-// Eliminar cookie de sesión (opcional pero recomendado)
+// Borrar cookie de sesión
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(
@@ -21,6 +19,6 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Redirigir al login
-header("Location: ../pages/index.php");
+// Redirigir con flag
+header("Location: ../pages/index.php?logout=1");
 exit;

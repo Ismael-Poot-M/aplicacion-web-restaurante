@@ -272,6 +272,27 @@ $event = $result->fetch_assoc();
     <?php include '../includes/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/scripts.js"></script>
+
+    <?php if (isset($_GET['logout']) && $_GET['logout'] == 1): ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            }).fire({
+                icon: "success",
+                title: "se cerro sesión correctamente"
+            });
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

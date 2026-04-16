@@ -92,7 +92,9 @@ $username = $_SESSION['username'] ?? 'Usuario';
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="../includes/logout.php">Cerrar Sesión</a>
+                            <a class="nav-link text-danger fw-bold" href="#" onclick="confirmLogout(event)">
+                                Cerrar Sesión
+                            </a>
                         </li>
 
                     <?php else: ?>
@@ -108,3 +110,29 @@ $username = $_SESSION['username'] ?? 'Usuario';
             </div>
         </div>
     </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function confirmLogout(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: "¿Deseas cerrar sesión?",
+                text: "Los cambios no guardados se perderán.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sí, salir",
+                cancelButtonText: "Cancelar",
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "../includes/logout.php";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
