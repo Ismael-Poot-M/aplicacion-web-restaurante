@@ -1,7 +1,5 @@
 <?php
-// footer.php
-// Pie de página común para todas las páginas.
-// Incluye datos de contacto, enlaces y scripts de Bootstrap.
+require_once 'init.php';
 ?>
 
 <!-- Footer -->

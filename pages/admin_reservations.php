@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/config.php';
+require_once '../includes/init.php';
 
 // Solo administradores
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {

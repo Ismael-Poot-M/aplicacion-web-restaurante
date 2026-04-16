@@ -1,5 +1,5 @@
 <?php
-include '../includes/config.php';
+require_once '../includes/init.php';
 
 header('Content-Type: application/json');
 

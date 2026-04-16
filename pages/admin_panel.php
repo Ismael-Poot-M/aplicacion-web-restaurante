@@ -1,6 +1,7 @@
 <?php
 session_start();
-include '../includes/config.php';
+require_once '../includes/init.php';
+include '../includes/header.php';
 
 // Solo administradores
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
@@ -17,21 +18,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style_menu.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shortcut icon" href="../assets/images/Letra.png" type="image/x-icon">
     <title>Menú Administrador</title>
 </head>
 
 <body>
-
-    <div class="container text-center">
-        <div class="row align-items-start">
-
-            <div class="col">
-                <a href="../pages/index.php"><img class="logo" src="../assets/images/logo-nombre-horizontal-blanco.png"></a>
-            </div>
-
-        </div>
-    </div>
 
     <div class="container text-center">
         <div class="row align-items-start">

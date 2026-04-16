@@ -1,7 +1,5 @@
 <?php
-session_start();
-include '../includes/config.php';
-include '../includes/functions.php';
+require_once '../includes/init.php';
 include '../includes/header.php';
 
 // Obtener evento del mes
