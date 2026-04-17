@@ -37,7 +37,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
     <div class="container my-4">
         <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-2">
                 <div class="card h-100">
                     <a href="reservations.php">
                         <img src="../assets/images/seccion_asignacion_mesas.jpg" class="card-img-top" alt="Mapeo de Restaurante">
@@ -46,7 +46,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-2">
                 <div class="card h-100">
                     <a href="admin_reservations.php">
                         <img src="../assets/images/seccion_reservacion.jpg" class="card-img-top" alt="Reservaciones">
@@ -55,7 +55,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-2">
                 <div class="card h-100">
                     <a href="events.php">
                         <img src="../assets/images/seccion_eventos.jpg" class="card-img-top" alt="Eventos">
@@ -64,7 +64,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-2">
                 <div class="card h-100">
                     <a href="loyalty.php">
                         <img src="../assets/images/seccion_tdl.jpg" class="card-img-top" alt="Tarjetas de Lealtad">

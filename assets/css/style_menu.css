@@ -33,7 +33,7 @@ body{
     transform: translate(-50%, -50%); /* Centramos un poco más arriba */
     color: var(--blanco);
     font-family: var(--fuenteHeading);
-    font-size: 34px;
+    font-size: 26px;
     font-weight: bold;
     text-shadow: 2px 2px 4px var(--negro);   
     justify-content: center;
