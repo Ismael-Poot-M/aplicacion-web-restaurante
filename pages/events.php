@@ -62,7 +62,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
             <div class="col">
                 <div class="card">
                     <div class="card-body column">
-                        <form class="row g-3" method="POST" action="guardar_evento.php">
+                        <form class="row g-3" method="POST" action="../includes/guardar_evento.php">
                             <div class="col-md-6">
                                 <label for="inputAddress" class="form-label">Titulo</label>
                                 <input type="text" class="form-control" name="title" required>

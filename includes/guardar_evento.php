@@ -19,7 +19,7 @@ if (isset($_POST['save'])) {
 
     if ($stmt->execute()) {
         echo "Evento registrado correctamente";
-        header("Location: events.php"); // opcional
+        header("Location: ../pages/events.php"); // opcional
     } else {
         echo "Error: " . $stmt->error;
     }

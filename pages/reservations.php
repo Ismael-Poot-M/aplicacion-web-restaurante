@@ -66,7 +66,7 @@ $muebles = $conn->query("SELECT * FROM furniture");
                     <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <form action="guardar_mueble.php" method="POST" enctype="multipart/form-data">
+                            <form action="../includes/guardar_mueble.php" method="POST" enctype="multipart/form-data">
 
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Mueble / Objeto</h1>

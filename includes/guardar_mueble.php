@@ -24,11 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // insertar en BD
         $stmt = $conn->prepare("INSERT INTO furniture (nombre, imagen, pos_x, pos_y, width, height) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssiiii", $nombre, $rutaDestino, $pos_x, $pos_y, $width, $height);
-        $stmt->execute();
 
-        // recargar para ver cambios
-        header("Location: reservations.php");
-        exit;
+        if ($stmt->execute()) {
+            echo "Mueble / objeto registrado correctamente";
+            header("Location: ../pages/reservations.php");
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+        $stmt->close();
     }
+
+    $conn->close();
 }
-?>

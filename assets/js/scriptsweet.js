@@ -96,7 +96,7 @@ document.getElementById('guardarPosiciones').addEventListener('click', () => {
         title: "Guardando mapa..."
     });
 
-    fetch('guardar_posiciones_admin.php', {
+    fetch('../includes/guardar_posiciones_admin.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
