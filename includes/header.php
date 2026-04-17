@@ -39,6 +39,10 @@ $username = $_SESSION['username'] ?? 'Usuario';
 
                     <?php if ($role === 'admin'): ?>
 
+                        <li class="nav-item">
+                            <a href="../pages/index.php" class="nav-link">Inicio</a>
+                        </li>
+
                         <!-- 🔴 SOLO ADMIN -->
                         <li class="nav-item">
                             <a class="nav-link" href="../pages/admin_panel.php">Panel Administrador</a>
