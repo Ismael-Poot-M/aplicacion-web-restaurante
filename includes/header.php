@@ -88,11 +88,11 @@ $username = $_SESSION['username'] ?? 'Usuario';
                     <?php if ($role !== 'guest'): ?>
 
                         <li class="nav-item">
-                            <span class="nav-link">Hola, <?= htmlspecialchars($username); ?>!</span>
+                            <span class="nav-link"><?= htmlspecialchars($username); ?>!</span>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-danger fw-bold" href="#" onclick="confirmLogout(event)">
+                            <a class="nav-link " href="#" onclick="confirmLogout(event)">
                                 Cerrar Sesión
                             </a>
                         </li>

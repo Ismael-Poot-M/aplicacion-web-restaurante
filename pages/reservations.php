@@ -56,7 +56,44 @@ $muebles = $conn->query("SELECT * FROM furniture");
                     <button id="guardarPosiciones" class="btn btn-primary boton">Guardar</button>
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary boton">Agregar Objeto</button>
+                    <button type="button" class="btn btn-primary boton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Agregar Mueble / Objeto
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <form action="guardar_mueble.php" method="POST" enctype="multipart/form-data">
+
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Mueble / Objeto</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <input class="form-control" type="text" name="nombre" placeholder="Nombre del Mueble / Objeto" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <input class="form-control" type="file" name="imagen" required>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
