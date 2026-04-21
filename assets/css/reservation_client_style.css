@@ -18,7 +18,6 @@
 
 .from-label {
     color: var(--blanco);
-    font-weight: bold;
     font-size: 20px;
 }
 
@@ -28,6 +27,7 @@
 
 .informacion {
     color: var(--blanco);
+    font-weight: bold;
 }
 
 .btn-primary{

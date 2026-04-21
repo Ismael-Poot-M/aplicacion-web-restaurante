@@ -172,7 +172,7 @@ $correo = $_SESSION['correo'] ?? '';
 
                                             <div class="mb-3">
                                                 <label class="from-label">Correo Electrónico</label>
-                                                <input class="form-control" type="text" name="correo" value="<?php echo $correo; ?>" readonly>
+                                                <input class="form-control" type="text" name="correo">
                                             </div>
 
                                             <div class="mb-3">
