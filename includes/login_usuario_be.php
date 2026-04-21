@@ -14,11 +14,11 @@ if (mysqli_num_rows($validar_login) > 0) {
 
     $usuario = mysqli_fetch_assoc($validar_login);
 
-    // 🔥 SESIÓN CONSISTENTE (IMPORTANTE)
     $_SESSION['user_id'] = $usuario['id'];
     $_SESSION['username'] = $usuario['username'];
     $_SESSION['correo'] = $usuario['email'];
     $_SESSION['role'] = $usuario['role'];
+    $_SESSION['nombre'] = $usuario['nombre'];
 
     // Redirección por rol
     if ($usuario['role'] === 'admin') {

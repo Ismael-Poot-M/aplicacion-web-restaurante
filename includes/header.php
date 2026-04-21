@@ -52,15 +52,11 @@ $username = $_SESSION['username'] ?? 'Usuario';
 
                         <!-- 🟢 CLIENTE -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#conocenos">Conócenos</a>
+                            <a class="nav-link" href="../pages/index.php">Inicio</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#ubicacion">Ubicación</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contactanos">Contáctanos</a>
+                            <a class="nav-link" href="../pages/cliente_panel.php">Reservar Mesa</a>
                         </li>
 
                         <li class="nav-item">

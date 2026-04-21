@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once '../includes/init.php';
-include '../includes/header.php';
 
 // Solo administradores
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'cliente') {
@@ -12,8 +11,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'cliente') {
 // Obtener mesas y muebles
 $mesas = $conn->query("SELECT * FROM tables");
 $muebles = $conn->query("SELECT * FROM furniture");
-$nombrec = $_SESSION['nombre'] ?? '';
-$correo = $_SESSION['correo'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +31,10 @@ $correo = $_SESSION['correo'] ?? '';
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col">
-
+                    <a href="admin_panel.php"><img class="volver" src="../assets/images/retroceso.png"></a>
                 </div>
                 <div class="col">
-                    <h1 class="titulo">Mapa del Restaurante</h1>
+                    <h2 class="titulo">Mapa del Restaurante</h2>
                 </div>
                 <div class="col">
 
@@ -78,6 +75,7 @@ $correo = $_SESSION['correo'] ?? '';
                         $imgMesa .= "verde.png";
                 }
 
+                // 🔥 ID único
                 $modalId = "modalMesa_" . $mesa['id'];
                 ?>
 
@@ -98,6 +96,7 @@ $correo = $_SESSION['correo'] ?? '';
                     </div>
                 </div>
 
+                <!-- MODAL (MISMO QUE TENÍAS, SOLO CAMBIA EL ID) -->
                 <div class="modal fade" id="<?php echo $modalId; ?>" tabindex="-1">
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
@@ -107,9 +106,9 @@ $correo = $_SESSION['correo'] ?? '';
                                     <form action="#" method="POST" enctype="multipart/form-data">
 
                                         <div class="modal-header">
-                                            <h2 class="modal-title  informacion">
+                                            <h1 class="modal-title fs-5 informacion">
                                                 Reservar Mesa #<?php echo $mesa['id']; ?>
-                                            </h2>
+                                            </h1>
                                         </div>
 
                                         <div class="modal-body">
@@ -127,42 +126,15 @@ $correo = $_SESSION['correo'] ?? '';
                                                 </div>
                                             </div>
 
-                                            <div class="mb-3 row">
-                                                <div class="col">
-                                                    <label class="from-label">Nombre Completo</label>
-                                                    <input class="form-control" type="text" name="nombre" value="<?php echo $nombrec; ?>" readonly disabled>
-                                                </div>
-
-                                                <div class="col">
-                                                    <label class="from-label">Hora</label>
-                                                    <select name="hora" class="form-control">
-                                                        <option value="">Selecciona una hora</option>
-                                                        <?php
-                                                        // Desde 09:00 hasta 23:30
-                                                        for ($h = 9; $h <= 23; $h++) {
-                                                            foreach ([0, 30] as $m) {
-                                                                $hora = date("h:i A", strtotime("$h:$m"));
-                                                                echo "<option value='$hora'>$hora</option>";
-                                                            }
-                                                        }
-
-                                                        // Desde 00:00 hasta 02:00
-                                                        for ($h = 0; $h <= 1; $h++) {
-                                                            foreach ([0, 30] as $m) {
-                                                                $hora = date("h:i A", strtotime("$h:$m"));
-                                                                echo "<option value='$hora'>$hora</option>";
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
+                                            <div class="mb-3">
+                                                <label class="from-label">Nombre Completo</label>
+                                                <input class="form-control" type="text" name="nombre">
                                             </div>
-
 
                                             <div class="mb-3 row">
                                                 <div class="col">
                                                     <label class="from-label">Fecha</label>
-                                                    <input class="form-control" type="date" name="fecha_reserva">
+                                                    <input class="form-control" type="text" name="fecha_reserva">
                                                 </div>
                                                 <div class="col">
                                                     <label class="from-label">Teléfono</label>
@@ -172,13 +144,13 @@ $correo = $_SESSION['correo'] ?? '';
 
                                             <div class="mb-3">
                                                 <label class="from-label">Correo Electrónico</label>
-                                                <input class="form-control" type="text" name="correo" value="<?php echo $correo; ?>" readonly>
+                                                <input class="form-control" type="text" name="correo">
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="from-label">Ocasion Especial (Opcional)</label>
+                                                <label class="from-label"></label>
                                                 <select name="ocasion_especial" class="form-control">
-                                                    <option value="">Seleccione una ocasion</option>
+                                                    <option value="">Seleccione una ocasion (opcional)</option>
                                                     <option value="cumpleaños">Cumpleaños</option>
                                                     <option value="aniversario">Aniversario</option>
                                                     <option value="fiesta">Fiesta</option>
@@ -186,10 +158,17 @@ $correo = $_SESSION['correo'] ?? '';
                                                 </select>
                                             </div>
 
-                                            <div class="mb-3">
-                                                <label class="from-label">Solicitud especial</label>
-                                                <input class="form-control" type="text" name="solicitud_especial">
+                                            <div class="mb-3 row">
+                                                <div class="col">
+                                                    <label class="from-label">Solicitud especial</label>
+                                                    <input class="form-control" type="text" name="solicitud_especial">
+                                                </div>
+                                                <div class="col">
+                                                    <label class="from-label">Hora</label>
+                                                    <input class="form-control" type="text" name="hora">
+                                                </div>
                                             </div>
+
                                         </div>
 
                                         <div class="modal-footer">
@@ -204,6 +183,7 @@ $correo = $_SESSION['correo'] ?? '';
                                     </form>
                                 </div>
 
+                                <!-- 🔥 TU COLUMNA SE RESPETA COMPLETAMENTE -->
                                 <div class="col">
                                     <div class="modal-header">
                                         <h2 class="informacion">¿Qué debes saber antes de ir?</h2>
@@ -248,6 +228,7 @@ $correo = $_SESSION['correo'] ?? '';
     <!-- script js -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="../assets/js/scriptsweet.js"></script>
 </body>
 
 </html>
