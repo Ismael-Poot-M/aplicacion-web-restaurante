@@ -61,7 +61,7 @@ $nombrec = $_SESSION['nombre'] ?? '';
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/loyalty.php">Tarjeta de Lealtad</a>
+                            <a class="nav-link" href="../pages/loyalty_client.php">Tarjeta de Lealtad</a>
                         </li>
 
                         <li class="nav-item">
