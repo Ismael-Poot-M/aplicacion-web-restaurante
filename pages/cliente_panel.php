@@ -126,8 +126,7 @@ $correo = $_SESSION['correo'] ?? '';
                                             <h2 class="modal-title  informacion">
                                                 Reservar Mesa #<?php echo $mesa['id']; ?>
                                             </h2>
-                                            
-                                            
+                                              
                                         </div>
                                         
                                         <div class="modal-body">
