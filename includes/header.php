@@ -3,6 +3,7 @@ require_once __DIR__ . '/init.php';
 
 $role = $_SESSION['role'] ?? 'guest';
 $username = $_SESSION['username'] ?? 'Usuario';
+$nombrec = $_SESSION['nombre'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -43,14 +44,14 @@ $username = $_SESSION['username'] ?? 'Usuario';
                             <a href="../pages/index.php" class="nav-link">Inicio</a>
                         </li>
 
-                        <!-- 🔴 SOLO ADMIN -->
+                        <!--SOLO ADMIN -->
                         <li class="nav-item">
                             <a class="nav-link" href="../pages/admin_panel.php">Panel Administrador</a>
                         </li>
 
                     <?php elseif ($role === 'cliente'): ?>
 
-                        <!-- 🟢 CLIENTE -->
+                        <!--CLIENTE -->
                         <li class="nav-item">
                             <a class="nav-link" href="../pages/index.php">Inicio</a>
                         </li>
@@ -63,9 +64,13 @@ $username = $_SESSION['username'] ?? 'Usuario';
                             <a class="nav-link" href="../pages/loyalty.php">Tarjeta de Lealtad</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/reservations_client.php">Mis Reservaciones</a>
+                        </li>
+
                     <?php else: ?>
 
-                        <!-- ⚪ INVITADO -->
+                        <!--INVITADO -->
                         <li class="nav-item">
                             <a class="nav-link" href="#conocenos">Conócenos</a>
                         </li>
@@ -88,7 +93,7 @@ $username = $_SESSION['username'] ?? 'Usuario';
                     <?php if ($role !== 'guest'): ?>
 
                         <li class="nav-item">
-                            <span class="nav-link"><?= htmlspecialchars($username); ?>!</span>
+                            <a href="../pages/profile.php" class="nav-link">| <?= htmlspecialchars($nombrec); ?> |</a>
                         </li>
 
                         <li class="nav-item">
