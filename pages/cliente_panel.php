@@ -24,6 +24,7 @@ $correo = $_SESSION['correo'] ?? '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Cliente</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="../assets/css/reservation_client_style.css">
 </head>
 
@@ -41,6 +42,21 @@ $correo = $_SESSION['correo'] ?? '';
                 </div>
                 <div class="col">
 
+                </div>
+            </div>
+
+            <div class="row align-items-start">
+                <div class="col">
+                    <h4 class="texto-status">Disponible</h4>
+                    <p class="status-text"><img class="status" src="../assets/images/mapeo_restaurante/Disponible.png" alt="Disponible"></p>
+                </div>
+                <div class="col">
+                    <h4 class="texto-status">Reservada</h4>
+                    <p class="status-text"><img class="status" src="../assets/images/mapeo_restaurante/Reservada.png" alt="Reservada"></p>
+                </div>
+                <div class="col">
+                    <h4 class="texto-status">Ocupada</h4>
+                    <p class="status-text"><img class="status" src="../assets/images/mapeo_restaurante/Ocupada.png" alt="Ocupada"></p>
                 </div>
             </div>
         </div>
@@ -104,33 +120,33 @@ $correo = $_SESSION['correo'] ?? '';
 
                             <div class="row">
                                 <div class="col">
-                                    <form action="#" method="POST" enctype="multipart/form-data">
+                                    <form action="../includes/guardar_reservacion.php" method="POST" enctype="multipart/form-data">
 
                                         <div class="modal-header">
                                             <h2 class="modal-title  informacion">
                                                 Reservar Mesa #<?php echo $mesa['id']; ?>
                                             </h2>
+                                            
+                                            
                                         </div>
-
+                                        
                                         <div class="modal-body">
-
                                             <div class="mb-3 row">
                                                 <div class="col">
-                                                    <label class="from-label">Número de Mesa</label>
-                                                    <input class="form-control" type="text"
-                                                        value="<?php echo $mesa['table_number']; ?>" disabled>
+                                                    <label class="from-label">Número de Mesa *</label>
+                                                    <input class="form-control" type="text" name="nmesa" value="<?php echo $mesa['table_number']; ?>" readonly>
+
                                                 </div>
                                                 <div class="col">
-                                                    <label class="from-label">Número de Personas</label>
-                                                    <input class="form-control" type="text"
-                                                        value="<?php echo $mesa['capacity']; ?>" disabled>
+                                                    <label class="from-label">Número de Personas *</label>
+                                                    <input class="form-control" type="text" name="capacidad" value="<?php echo $mesa['capacity']; ?>" readonly>
                                                 </div>
                                             </div>
 
                                             <div class="mb-3 row">
                                                 <div class="col">
-                                                    <label class="from-label">Nombre Completo</label>
-                                                    <input class="form-control" type="text" name="nombre" value="<?php echo $nombrec; ?>" readonly disabled>
+                                                    <label class="from-label">Nombre Completo *</label>
+                                                    <input class="form-control" type="text" name="nombre" value="<?php echo $nombrec; ?>" readonly readonly>
                                                 </div>
 
                                                 <div class="col">
@@ -158,20 +174,19 @@ $correo = $_SESSION['correo'] ?? '';
                                                 </div>
                                             </div>
 
-
                                             <div class="mb-3 row">
                                                 <div class="col">
-                                                    <label class="from-label">Fecha</label>
+                                                    <label class="from-label">Fecha *</label>
                                                     <input class="form-control" type="date" name="fecha_reserva">
                                                 </div>
                                                 <div class="col">
-                                                    <label class="from-label">Teléfono</label>
+                                                    <label class="from-label">Teléfono *</label>
                                                     <input class="form-control" type="text" name="telefono">
                                                 </div>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="from-label">Correo Electrónico</label>
+                                                <label class="from-label">Correo Electrónico *</label>
                                                 <input class="form-control" type="text" name="correo">
                                             </div>
 
@@ -193,7 +208,7 @@ $correo = $_SESSION['correo'] ?? '';
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                                                 Cancelar
                                             </button>
                                             <button type="submit" class="btn btn-primary">
@@ -222,15 +237,12 @@ $correo = $_SESSION['correo'] ?? '';
                                         <p class="body-informacion">Aceptamos mascotas en nuestra terraza de 1 a 5 pm</p>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
 
             <?php endwhile; ?>
-
 
             <!-- MUEBLES -->
             <?php while ($mueble = $muebles->fetch_assoc()): ?>
@@ -239,11 +251,32 @@ $correo = $_SESSION['correo'] ?? '';
                     <img src="<?php echo $mueble['imagen']; ?>"
                         alt="<?php echo $mueble['nombre']; ?>"
                         style="width:<?php echo intval($mueble['width']); ?>px; height:<?php echo intval($mueble['height']); ?>px;">
-
                 </div>
             <?php endwhile; ?>
         </div>
     </div>
+
+    <script>
+        <?php if (isset($_GET['success'])): ?>
+            Swal.mixin({
+                toast: true,
+                position: "top",
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            }).fire({
+                icon: "success",
+                title: "Mesa reservada correctamente"
+            }).then(() => {
+                // Limpia la URL sin recargar
+                window.history.replaceState({}, document.title, window.location.pathname);
+            });
+        <?php endif; ?>
+    </script>
 
     <!-- script js -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

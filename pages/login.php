@@ -33,6 +33,10 @@
                     <h2 class="title">Registrar</h2>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Nombre Completo" name="nombre" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
                         <input type="email" placeholder="Correo Electronico" name="correo" />
                     </div>
                     <div class="input-field">

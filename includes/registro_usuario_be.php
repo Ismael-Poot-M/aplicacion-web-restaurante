@@ -3,9 +3,12 @@ include 'config.php';
 require '../phpqrcode/qrlib.php'; // Asegúrate de tener esta librería (https://sourceforge.net/projects/phpqrcode/)
 
 // Obtener datos del formulario
+$nombre = $_POST['nombre'];
 $correo = $_POST['correo'];
 $usuario = $_POST['usuario'];
 $contrasena = $_POST['contrasena'];
+
+$role = 'cliente'; // Asignar rol de cliente por defecto
 
 // --- Validar duplicados ---
 $verificar_correo = mysqli_query($conn, "SELECT * FROM users WHERE email='$correo'");
@@ -21,9 +24,9 @@ if (mysqli_num_rows($verificar_usuario) > 0) {
 }
 
 // --- Insertar usuario ---
-$contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
-$query = "INSERT INTO users (email, username, passwords) 
-          VALUES ('$correo', '$usuario', '$contrasena_hash')";
+
+$query = "INSERT INTO users (nombre, email, username, passwords, role) 
+          VALUES ('$nombre', '$correo', '$usuario', '$contrasena', '$role')";
 
 if (mysqli_query($conn, $query)) {
     // Obtener el ID del nuevo usuario
