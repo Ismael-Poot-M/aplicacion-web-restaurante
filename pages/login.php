@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="../assets/css/estiloslogin.css" />
     <link rel="shortcut icon" href="../assets/images/Letra.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-
     <title></title>
 </head>
 
@@ -29,23 +27,45 @@
                     <button class="btn solid">Iniciar Sesion</button>
 
                 </form>
-                <form action="../includes/registro_usuario_be.php" method="POST" class="sign-up-form">
+                <form action="../includes/registro_usuario_be.php" method="POST" enctype="multipart/form-data" class="sign-up-form">
+
                     <h2 class="title">Registrar</h2>
+
                     <div class="input-field">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fa-solid fa-address-card"></i>
                         <input type="text" placeholder="Nombre Completo" name="nombre" />
                     </div>
+
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="email" placeholder="Correo Electronico" name="correo" />
                     </div>
+
                     <div class="input-field">
-                        <i class="fas fa-lock"></i>
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="phone" placeholder="Número de Teléfono" name="telefono" />
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
                         <input type="text" placeholder="Usuario" name="usuario" />
                     </div>
+
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Contraseña" name="contrasena" />
+                    </div>
+                    
+                    <div class="input-field file-input">
+                        <i class="fas fa-image"></i>
+
+                        <label for="fileInput" class="file-label">
+                            Foto de Perfil
+                        </label>
+
+                        <input type="file" id="fileInput" name="photo" accept="image/*">
+
+                        <span id="fileName">Ningún archivo</span>
                     </div>
                     <button class="btn">Registrar</button>
 
@@ -82,6 +102,7 @@
     </div>
 
     <script src="../assets/js/scriptlogin.js"></script>
+
 </body>
 
 </html>

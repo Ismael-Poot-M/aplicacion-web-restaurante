@@ -1,0 +1,81 @@
+:root {
+
+    --fuenteHeading: "AW Conqueror Didot Light";
+    --fuenteParrafos: museo, serif;
+
+    --blanco: white;
+    --negro: black;
+
+}
+
+*{
+    font-family: var(--fuenteHeading);
+}
+
+body {
+    background-image: url(../images/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #2c2c3e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-header {
+    text-align: center;
+}
+
+.profile-header img {
+    width: 120px;
+    border-radius: 50%;
+}
+
+.profile-info {
+    margin-top: 20px;
+}
+
+.profile-info label {
+    display: block;
+    margin-top: 10px;
+}
+
+.profile-info input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn:hover {
+    background: #45a049;
+}
+
+.from-label {
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+.form-control {
+    background: #E9ECEF;
+}
+
+.profile-label {
+    color: var(--blanco);
+}

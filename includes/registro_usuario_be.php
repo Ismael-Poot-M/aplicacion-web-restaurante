@@ -1,57 +1,91 @@
 <?php
-include 'config.php';
+require_once '../includes/init.php';
 require '../phpqrcode/qrlib.php'; // Asegúrate de tener esta librería (https://sourceforge.net/projects/phpqrcode/)
 
-// Obtener datos del formulario
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$usuario = $_POST['usuario'];
-$contrasena = $_POST['contrasena'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Obtener datos del formulario
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+    $usuario = $_POST['usuario'];
+    $telefono = $_POST['telefono'];
+    $contrasena = $_POST['contrasena'];
 
-$role = 'cliente'; // Asignar rol de cliente por defecto
+    $role = 'cliente'; // Asignar rol de cliente por defecto
 
-// --- Validar duplicados ---
-$verificar_correo = mysqli_query($conn, "SELECT * FROM users WHERE email='$correo'");
-if (mysqli_num_rows($verificar_correo) > 0) {
-    echo '<script>alert("Este correo ya está registrado, intenta con uno diferente"); window.location="../pages/login.php";</script>';
-    exit();
+    // Validación básica
+    if (empty($nombre) || empty($correo) || empty($usuario) || empty($contrasena)) {
+        die("Completa todos los campos");
+    }
+
+    // Verificar duplicados
+    $stmt = $conn->prepare("SELECT id FROM users WHERE email=? OR username=?");
+    $stmt->bind_param("ss", $correo, $usuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        echo '<script>alert("Correo o usuario ya existe"); window.location="../pages/login.php";</script>';
+        exit();
+    }
+
+    // Imagen
+    $rutaBD = "..\assets\images\usuarios\default.png";
+
+    if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === 0) {
+
+        $nombreArchivo = time() . "_" . basename($_FILES["photo"]["name"]);
+        $tmp = $_FILES["photo"]["tmp_name"];
+
+        $rutaServidor = "..\assets\images\usuarios\\" . $nombreArchivo;
+
+        $ext = strtolower(pathinfo($nombreArchivo, PATHINFO_EXTENSION));
+        $permitidos = ['jpg', 'jpeg', 'png'];
+
+        if (in_array($ext, $permitidos)) {
+
+            if ($_FILES["photo"]["size"] <= 2 * 1024 * 1024) {
+
+                if (move_uploaded_file($tmp, $rutaServidor)) {
+                    $rutaBD = "..\assets\images\usuarios\\" . $nombreArchivo;
+                }
+            }
+        }
+    }
+
+    // Insertar usuario
+    $stmt = $conn->prepare("INSERT INTO users (nombre, email, username, passwords, role, phone, photo)
+                           VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+    $stmt->bind_param("sssssss", $nombre, $correo, $usuario, $contrasena, $role, $telefono, $rutaBD);
+
+    if ($stmt->execute()) {
+
+        $user_id = $stmt->insert_id;
+
+        // Crear tarjeta
+        $card_number = 'LC-' . strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 10));
+
+        $qrDir = "../qrcodes/";
+        if (!file_exists($qrDir)) mkdir($qrDir, 0777, true);
+
+        $qrContent = "https://tusitio.com/lealtad.php?card=" . urlencode($card_number);
+        $qrFile = $qrDir . "qr_" . $user_id . ".png";
+
+        QRcode::png($qrContent, $qrFile, QR_ECLEVEL_L, 6);
+
+        $stmtCard = $conn->prepare("INSERT INTO loyalty_cards (user_id, card_number, qr_code, stamps)
+                                   VALUES (?, ?, ?, 0)");
+        $stmtCard->bind_param("iss", $user_id, $card_number, $qrFile);
+        $stmtCard->execute();
+
+        echo '<script>
+            alert("Usuario registrado correctamente");
+            window.location="../pages/login.php";
+        </script>';
+    } else {
+        die("Error: " . $stmt->error);
+    }
+
+    $stmt->close();
+    $conn->close();
 }
-
-$verificar_usuario = mysqli_query($conn, "SELECT * FROM users WHERE username='$usuario'");
-if (mysqli_num_rows($verificar_usuario) > 0) {
-    echo '<script>alert("Este usuario ya está registrado, intenta con uno diferente"); window.location="../pages/login.php";</script>';
-    exit();
-}
-
-// --- Insertar usuario ---
-
-$query = "INSERT INTO users (nombre, email, username, passwords, role) 
-          VALUES ('$nombre', '$correo', '$usuario', '$contrasena', '$role')";
-
-if (mysqli_query($conn, $query)) {
-    // Obtener el ID del nuevo usuario
-    $user_id = mysqli_insert_id($conn);
-
-    // --- Crear tarjeta de lealtad ---
-    $card_number = 'LC-' . strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 10));
-    $qrDir = "../qrcodes/";
-    if (!file_exists($qrDir)) mkdir($qrDir, 0777, true);
-
-    // Contenido del QR (puede ser cualquier enlace o identificador único)
-    $qrContent = "https://tusitio.com/lealtad.php?card=" . urlencode($card_number);
-    $qrFile = $qrDir . "qr_" . $user_id . ".png";
-
-    // Generar QR
-    QRcode::png($qrContent, $qrFile, QR_ECLEVEL_L, 6);
-
-    // Insertar tarjeta en la base de datos
-    $sqlCard = "INSERT INTO loyalty_cards (user_id, card_number, qr_code, stamps)
-                VALUES ('$user_id', '$card_number', '$qrFile', 0)";
-    mysqli_query($conn, $sqlCard);
-
-    echo '<script>alert("✅ Usuario registrado exitosamente. Se creó tu tarjeta de lealtad."); window.location="../pages/login.php";</script>';
-} else {
-    die("❌ Error al registrar usuario: " . mysqli_error($conn));
-}
-
-mysqli_close($conn);

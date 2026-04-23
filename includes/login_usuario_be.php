@@ -19,6 +19,8 @@ if (mysqli_num_rows($validar_login) > 0) {
     $_SESSION['correo'] = $usuario['email'];
     $_SESSION['role'] = $usuario['role'];
     $_SESSION['nombre'] = $usuario['nombre'];
+    $_SESSION['foto'] = $usuario['Photo'];
+    $_SESSION['telefono'] = $usuario['phone'];
 
     // Redirección por rol
     if ($usuario['role'] === 'admin') {

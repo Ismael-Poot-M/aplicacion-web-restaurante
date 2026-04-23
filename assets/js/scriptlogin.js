@@ -9,3 +9,8 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
+
+document.getElementById("fileInput").addEventListener("change", function () {
+    const fileName = this.files[0]?.name || "Ningún archivo";
+    document.getElementById("fileName").textContent = fileName;
+});
