@@ -1,0 +1,195 @@
+:root {
+
+    --fuenteHeading: "AW Conqueror Didot Light";
+    --fuenteParrafos: museo, serif;
+
+    --blanco: white;
+    --negro: black;
+
+}
+
+*{
+    font-family: var(--fuenteHeading);
+}
+
+body {
+    background-image: url(../images/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* TITULO */
+.title {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 30px;
+    color: var(--blanco);
+}
+
+/* CONTENEDOR */
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    perspective: 1000px; /* necesario para flip */
+}
+
+/* ===================== */
+/* TARJETA */
+/* ===================== */
+
+.loyalty-card {
+    width: 320px;
+    height: 180px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s, 0.3s;
+}
+
+/* EFECTO HOVER */
+.loyalty-card:hover {
+    transform: scale(1.05);
+}
+
+/* EFECTO FLIP */
+.loyalty-card.flip {
+    transform: rotateY(180deg);
+}
+
+/* CARAS */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+/* FRENTE */
+.card-front {
+    background: #140048;
+}
+
+/* ATRÁS */
+.card-back {
+    background: #1e1e1e;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* IMAGEN */
+.card-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFO */
+.card-info {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: var(--blanco);
+}
+
+.card-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-info p {
+    margin: 5px 0;
+}
+
+/* ===================== */
+/* EFECTO PROGRESO */
+/* ===================== */
+
+.active-1 { box-shadow: 0 0 15px red; }
+.active-2 { box-shadow: 0 0 15px blue; }
+.active-3 { box-shadow: 0 0 15px orange; }
+.active-4 { box-shadow: 0 0 15px violet; }
+.active-5 { box-shadow: 0 0 15px greenyellow; }
+.active-6 { box-shadow: 0 0 15px yellow; }
+.active-7 { box-shadow: 0 0 20px fuchsia; }
+
+/* ===================== */
+/* MODAL */
+/* ===================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 15px;
+    width: 700px;
+    text-align: center;
+    animation: zoomIn 0.3s ease;
+    color: var(--blanco);
+}
+
+/* ANIMACION */
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* PREVIEW TARJETA */
+.card-preview img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+/* ===================== */
+/* SELLOS */
+/* ===================== */
+
+.stamps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.stamp {
+    width: 70px;
+}
+
+/* ===================== */
+/* BOTON */
+/* ===================== */
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #140048;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #1f0070;
+}
