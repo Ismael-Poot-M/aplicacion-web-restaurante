@@ -1,0 +1,21 @@
+:root {
+
+    --fuenteHeading: "AW Conqueror Didot Light";
+    --fuenteParrafos: museo, serif;
+
+    --blanco: white;
+    --negro: black;
+
+}
+
+* {
+    font-family: var(--fuenteHeading);
+}
+
+body {
+    background-image: url(../images/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}

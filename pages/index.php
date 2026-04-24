@@ -21,14 +21,12 @@ $event = $result->fetch_assoc();
 </head>
 
 <body>
-    <!-- Carrusel -->
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="../assets/images/header_principal.png" class="d-block w-100" alt="Slide 1">
                 <img src="../assets/images/logo-nombre-horizontal-blanco.png" class="imagen-superior">
             </div>
-            <!-- Agrega más slides -->
         </div>
     </div>
 
@@ -39,7 +37,7 @@ $event = $result->fetch_assoc();
             <div class="col-sm-6 col-md-4 texto">
                 <img src="../assets/images/lobo.png" class="lobo">
                 <h1>Evento del Mes</h1>
-                <p>Aqui encontrarás el evento destacado del mes, pensado para ofrecerte momentos únicos llenos de sabor, ambiente y diversión. Mantente atento y ven a disfrutar con nosotros cada nueva celebración.</p>
+                <h5>Aqui encontrarás el evento destacado del mes, pensado para ofrecerte momentos únicos llenos de sabor, ambiente y diversión. Mantente atento y ven a disfrutar con nosotros cada nueva celebración.</h5>
             </div>
             <div class="col-sm-6 col-md-8 texto">
                 <?php if ($event): ?>
@@ -77,7 +75,7 @@ $event = $result->fetch_assoc();
             <div class="col-sm-6 col-md-4 texto">
                 <img src="../assets/images/lobo.png" class="lobo">
                 <h1>Nosotros</h1>
-                <p>Nuestro bar-restaurante es un espacio pensado para disfrutar de una experiencia gastronómica única, combinando el mejor ambiente con una amplia variedad de platillos y bebidas. Contamos con un menú que fusiona sabores tradicionales con toques modernos, ideal para todo tipo de paladares.</p>
+                <h5>Nuestro bar-restaurante es un espacio pensado para disfrutar de una experiencia gastronómica única, combinando el mejor ambiente con una amplia variedad de platillos y bebidas. Contamos con un menú que fusiona sabores tradicionales con toques modernos, ideal para todo tipo de paladares.</h5>
             </div>
         </div>
     </section>
@@ -99,7 +97,7 @@ $event = $result->fetch_assoc();
             <div class="col-sm-6 col-md-4 texto">
                 <img src="../assets/images/lobo.png" class="lobo">
                 <h1>Nuestra idea</h1>
-                <p>Nuestro bar-restaurante nace de la pasión por la buena comida, la mixología y los momentos que se disfrutan al máximo. Inspirados en la energía y el espíritu alegre de nuestra ciudad, decidimos crear un espacio donde cada visita se convierta en una experiencia memorable.</p>
+                <h5>Nuestro bar-restaurante nace de la pasión por la buena comida, la mixología y los momentos que se disfrutan al máximo. Inspirados en la energía y el espíritu alegre de nuestra ciudad, decidimos crear un espacio donde cada visita se convierta en una experiencia memorable.</h5>
             </div>
             <div class="col-sm-6 col-md-8 texto">
                 <img src="../assets/images/idea.png" class="idea">
@@ -133,7 +131,7 @@ $event = $result->fetch_assoc();
 
             <div class="col-sm-6 col-md-5 texto">
                 <h1>Nuestra Tarjeta de Lealtad</h1>
-                <h4>Nuestro programa de recompensas te ofrece beneficios exclusivos diseñados especialmente para ti.</h4>
+                <h5>Nuestro programa de recompensas te ofrece beneficios exclusivos diseñados especialmente para ti.</h5>
             </div>
             <div class="col-sm-6 col-md-7 texto">
                 <img src="../assets/images/TDL.png" class="TDL">
@@ -150,7 +148,6 @@ $event = $result->fetch_assoc();
 
         </div>
 
-
     </section>
 
     <div class="container text-center">
@@ -163,8 +160,6 @@ $event = $result->fetch_assoc();
             </div>
         </div>
     </div>
-
-
 
     <!-- Ubicación -->
     <section class="container my-5" id="ubicacion">
@@ -190,12 +185,10 @@ $event = $result->fetch_assoc();
             <div class="col-sm-6 col-md-4 texto">
                 <img src="../assets/images/maps.png" class="mapa">
                 <h1>Villahermosa <br> Tabasco</h1>
-                <p>Av Prof. Ramón Mendoza Herrera 102,<br> El Recreo, 86029<br> Villahermosa, Tab.</p>
+                <h5>Av Prof. Ramón Mendoza Herrera 102,<br> El Recreo, 86029<br> Villahermosa, Tab.</h5>
             </div>
         </div>
     </section>
-
-
 
     <div class="container text-center">
         <div class="row align-items-center">
@@ -210,7 +203,6 @@ $event = $result->fetch_assoc();
 
     <!-- Datos de Contacto -->
     <section class="container my-5" id="contactanos">
-
 
         <div class="container text-center titulo">
             <div class="row align-items-center">
@@ -230,7 +222,7 @@ $event = $result->fetch_assoc();
             <div class="row align-items-center">
 
                 <div class="col">
-                    <h3>Nuestro equipo agradece su visita. Para mas informacion, pueden contactarnos mediante nuestros siguientes medios.</h3>
+                    <h4>Nuestro equipo agradece su visita. Para mas informacion, pueden contactarnos mediante nuestros siguientes medios.</h4>
                 </div>
 
             </div>

@@ -1,195 +1,299 @@
 :root {
+  --fuenteHeading: "AW Conqueror Didot Light";
+  --fuenteParrafos: museo, serif;
 
-    --fuenteHeading: "AW Conqueror Didot Light";
-    --fuenteParrafos: museo, serif;
-
-    --blanco: white;
-    --negro: black;
-
+  --blanco: white;
+  --negro: black;
 }
 
-*{
-    font-family: var(--fuenteHeading);
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fuenteHeading);
 }
 
+/* BODY */
 body {
-    background-image: url(../images/fondo.png);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url(../images/fondo.png);
 }
 
-/* TITULO */
-.title {
-    text-align: center;
-    font-size: 40px;
-    margin-top: 30px;
-    color: var(--blanco);
+/* TEXTOS */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--blanco);
 }
 
-/* CONTENEDOR */
-.card-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    perspective: 1000px; /* necesario para flip */
+.logo_tdl {
+  width: 70%;
 }
 
-/* ===================== */
+p,
+span {
+  color: var(--blanco);
+  font-family: var(--fuenteParrafos);
+}
+
+/* ========================= */
+/* BIENVENIDA */
+/* ========================= */
+
+.tdl {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.titulo-bienvenida {
+  font-size: 3rem;
+}
+
+/* ========================= */
 /* TARJETA */
-/* ===================== */
+/* ========================= */
 
-.loyalty-card {
-    width: 320px;
-    height: 180px;
-    cursor: pointer;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s, 0.3s;
+.top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  /* para móvil */
 }
 
-/* EFECTO HOVER */
-.loyalty-card:hover {
-    transform: scale(1.05);
+.container_card {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
 }
 
-/* EFECTO FLIP */
-.loyalty-card.flip {
-    transform: rotateY(180deg);
+.card-container_2 {
+  width: 320px;
+  height: 180px;
+  perspective: 1000px;
 }
 
-/* CARAS */
+.card {
+  width: 130%;
+  height: 130%;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
 .card-front,
 .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    backface-visibility: hidden;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
 }
 
-/* FRENTE */
+/* FRONT */
 .card-front {
-    background: #140048;
+  background: #050505;
+  background: linear-gradient(90deg, rgba(5, 5, 5, 1) 0%, rgb(63, 63, 63) 77%, rgb(88, 88, 88) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ATRÁS */
+/* BACK */
 .card-back {
-    background: #1e1e1e;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
+  background: #1e1e1e;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* IMAGEN */
-.card-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* ========================= */
+/* EFECTO PROGRESO TARJETA */
+/* ========================= */
+
+.activeDay_1 {
+  box-shadow: 0 0 20px red;
 }
 
-/* INFO */
-.card-info {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    color: var(--blanco);
+.activeDay_2 {
+  box-shadow: 0 0 20px blue;
 }
 
-.card-info h3 {
-    margin: 0;
-    font-size: 18px;
+.activeDay_3 {
+  box-shadow: 0 0 20px orange;
 }
 
-.card-info p {
-    margin: 5px 0;
+.activeDay_4 {
+  box-shadow: 0 0 20px violet;
 }
 
-/* ===================== */
-/* EFECTO PROGRESO */
-/* ===================== */
-
-.active-1 { box-shadow: 0 0 15px red; }
-.active-2 { box-shadow: 0 0 15px blue; }
-.active-3 { box-shadow: 0 0 15px orange; }
-.active-4 { box-shadow: 0 0 15px violet; }
-.active-5 { box-shadow: 0 0 15px greenyellow; }
-.active-6 { box-shadow: 0 0 15px yellow; }
-.active-7 { box-shadow: 0 0 20px fuchsia; }
-
-/* ===================== */
-/* MODAL */
-/* ===================== */
-
-.modal {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
+.activeDay_5 {
+  box-shadow: 0 0 20px greenyellow;
 }
 
-.modal-content {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 15px;
-    width: 700px;
-    text-align: center;
-    animation: zoomIn 0.3s ease;
-    color: var(--blanco);
+.activeDay_6 {
+  box-shadow: 0 0 20px yellow;
 }
 
-/* ANIMACION */
-@keyframes zoomIn {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.activeDay_7 {
+  box-shadow: 0 0 25px fuchsia;
 }
 
-/* PREVIEW TARJETA */
-.card-preview img {
-    width: 300px;
-    border-radius: 10px;
-}
-
-/* ===================== */
+/* ========================= */
 /* SELLOS */
-/* ===================== */
+/* ========================= */
 
-.stamps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 80px);
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
+.seccion-2 {
+  margin-top: 4rem;
+  text-align: center;
 }
 
-.stamp {
-    width: 70px;
+.marcador_dias_2 {
+  background: rgba(161, 161, 161, 0.6);
+  border: 2px solid white;
+  padding: 0.5rem;
+  border-radius: 15px;
+  display: inline-block;
+  width: 70%;
 }
 
-/* ===================== */
-/* BOTON */
-/* ===================== */
-
-.btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #140048;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
+.img_asistencia {
+  width: 70px;
+  margin: 10px;
+  transition: transform 0.3s;
 }
 
-.btn:hover {
-    background: #1f0070;
+.img_asistencia:hover {
+  transform: translateY(-5px);
+}
+
+/* ========================= */
+/* INFO TEXTO */
+/* ========================= */
+
+.info_declaracion {
+  margin-top: 2rem;
+}
+
+/* ========================= */
+/* RECOMPENSAS */
+/* ========================= */
+
+.titulo_recompensas_C {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 2rem;
+}
+
+.division_dias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+}
+
+/* CARDS RECOMPENSAS */
+.division_dias>div {
+  border: 2px solid white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  background: #000;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 88%;
+  margin-bottom: 10px;
+}
+
+/* ACTIVOS */
+.division_dias>div.active {
+  transform: scale(1.05);
+}
+
+/* COLORES POR NIVEL */
+.div-1.active {
+  box-shadow: 0 0 20px red;
+}
+
+.div-2.active {
+  box-shadow: 0 0 20px blue;
+}
+
+.div-3.active {
+  box-shadow: 0 0 20px purple;
+}
+
+.div-4.active {
+  box-shadow: 0 0 20px violet;
+}
+
+.div-5.active {
+  box-shadow: 0 0 20px brown;
+}
+
+.div-6.active {
+  box-shadow: 0 0 20px yellow;
+}
+
+.div-7.active {
+  box-shadow: 0 0 20px fuchsia;
+}
+
+.img-regalos {
+  width: 120px;
+  margin-top: 10px;
+}
+
+.oculto {
+  width: 150px;
+  margin-top: 10px;
+}
+
+/* ========================= */
+/* SIN TARJETA */
+/* ========================= */
+
+.notargeta {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 20px;
+}
+
+/* ========================= */
+/* ANIMACIONES */
+/* ========================= */
+
+@keyframes glow {
+  40% {
+    text-shadow: 0 0 10px #fff;
+  }
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .division_dias {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo-bienvenida {
+    font-size: 2rem;
+  }
 }
