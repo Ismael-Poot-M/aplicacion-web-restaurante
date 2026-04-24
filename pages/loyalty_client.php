@@ -29,7 +29,6 @@ $card = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDL - <?php echo $nombrec; ?></title>
     <link rel="stylesheet" href="../assets/css/loyalty_style.css">
 </head>
 
@@ -43,7 +42,6 @@ $card = $result->fetch_assoc();
 
             <h2 class="titulo-bienvenida">
                 Tarjeta de Lealtad del cliente <?php echo $usuario; ?><br> Sellos actuales
-                
             </h2>
 
         </div>
@@ -96,13 +94,9 @@ $card = $result->fetch_assoc();
                                     src="../assets/images/<?= $i <= $stamps ? 'burger1.png' : 'burger2.png' ?>"
                                     class="img_asistencia">
                             <?php endfor; ?>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
             <div class="info_declaracion" data-aos="fade-up">
                 <h2>¡Nos encanta que seas nuestro cliente!</h2>
@@ -150,9 +144,9 @@ $card = $result->fetch_assoc();
                 <?php else: ?>
 
                     <div class="img-cover">
-                        
+
                         <img src="../assets/images/regalo.png" class="oculto">
-                        
+
                     </div>
 
                 <?php endif; ?>

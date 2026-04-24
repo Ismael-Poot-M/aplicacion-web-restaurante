@@ -12,6 +12,10 @@
     font-family: var(--fuenteHeading);
 }
 
+.nav-link {
+    font-size: 18px;
+}
+
 .modal-content {
     background-color: #F8F9FA;
     color: #1a1a1a;
@@ -27,7 +31,7 @@
     color: #1a1a1a;
 }
 
-.body-informacion-req{
+.body-informacion-req {
     color: #1a1a1a;
     font-weight: bold;
 }

@@ -4,6 +4,7 @@ require_once '../includes/init.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Obtener datos
+    $user_id = $_SESSION['user_id'] ?? null;
     $mesa = (int) ($_POST["nmesa"] ?? 0);
     $capacidad = (int) ($_POST["capacidad"] ?? 0);
     $nombre = $_POST["nombre"] ?? null;
@@ -29,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // INSERTAR RESERVACIÓN
         $stmt = $conn->prepare("
             INSERT INTO reservations 
-            (table_number, num_people, reservation_date, reservation_time, client_name, phone, email, occasion, special_request, created_at) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            (user_id, table_number, num_people, reservation_date, reservation_time, client_name, phone, email, occasion, special_request, created_at) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
 
         if (!$stmt) {
@@ -38,7 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         $stmt->bind_param(
-            "iissssssss",
+            "iiissssssss",
+            $user_id,
             $mesa,
             $capacidad,
             $fecha,

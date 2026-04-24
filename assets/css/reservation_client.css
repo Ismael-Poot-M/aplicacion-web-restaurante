@@ -12,10 +12,35 @@
     font-family: var(--fuenteHeading);
 }
 
+.nav-link {
+    font-size: 18px;
+}
+
 body {
     background-image: url(../images/fondo.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+.card-title{
+    font-size: 22px;
+}
+
+.card-text {
+    font-size: 18px;
+}
+
+.container {
+    margin-top: 5%;
+}
+
+.fotoperfil{
+    width: 120px;
+    border-radius: 50%;
+}
+
+.titulo {
+    color: var(--blanco);
 }

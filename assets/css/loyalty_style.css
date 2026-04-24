@@ -14,6 +14,10 @@
   font-family: var(--fuenteHeading);
 }
 
+.nav-link {
+  font-size: 18px;
+}
+
 /* BODY */
 body {
   background-size: cover;
@@ -52,6 +56,10 @@ span {
 
 .titulo-bienvenida {
   font-size: 3rem;
+  /* background: radial-gradient(ellipse at bottom, #fff, transparent);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glow 2.5s infinite; */
 }
 
 /* ========================= */
@@ -132,27 +140,27 @@ span {
 }
 
 .activeDay_2 {
-  box-shadow: 0 0 20px blue;
+  box-shadow: 0 0 20px rgb(208, 255, 0);
 }
 
 .activeDay_3 {
-  box-shadow: 0 0 20px orange;
+  box-shadow: 0 0 20px rgb(255, 149, 0);
 }
 
 .activeDay_4 {
-  box-shadow: 0 0 20px violet;
+  box-shadow: 0 0 20px rgb(6, 249, 39);
 }
 
 .activeDay_5 {
-  box-shadow: 0 0 20px greenyellow;
+  box-shadow: 0 0 20px rgb(0, 179, 255);
 }
 
 .activeDay_6 {
-  box-shadow: 0 0 20px yellow;
+  box-shadow: 0 0 20px rgb(68, 0, 255);
 }
 
 .activeDay_7 {
-  box-shadow: 0 0 25px fuchsia;
+  box-shadow: 0 0 25px rgb(234, 0, 255);
 }
 
 /* ========================= */
@@ -217,7 +225,7 @@ span {
   background: #000;
   transition: transform 0.3s, box-shadow 0.3s;
   width: 88%;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 /* ACTIVOS */
@@ -231,27 +239,27 @@ span {
 }
 
 .div-2.active {
-  box-shadow: 0 0 20px blue;
+  box-shadow: 0 0 20px rgb(208, 255, 0);
 }
 
 .div-3.active {
-  box-shadow: 0 0 20px purple;
+  box-shadow: 0 0 20px rgb(255, 149, 0);
 }
 
 .div-4.active {
-  box-shadow: 0 0 20px violet;
+  box-shadow: 0 0 20px rgb(6, 249, 39);
 }
 
 .div-5.active {
-  box-shadow: 0 0 20px brown;
+  box-shadow: 0 0 20px rgb(0, 179, 255);
 }
 
 .div-6.active {
-  box-shadow: 0 0 20px yellow;
+  box-shadow: 0 0 20px rgb(68, 0, 255);
 }
 
 .div-7.active {
-  box-shadow: 0 0 20px fuchsia;
+  box-shadow: 0 0 20px rgb(234, 0, 255);
 }
 
 .img-regalos {

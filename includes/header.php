@@ -17,6 +17,8 @@ $nombrec = $_SESSION['nombre'] ?? '';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="shortcut icon" href="../assets/images/Letra.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -98,14 +100,14 @@ $nombrec = $_SESSION['nombre'] ?? '';
 
                         <li class="nav-item">
                             <a class="nav-link " href="#" onclick="confirmLogout(event)">
-                                Cerrar Sesión
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión
                             </a>
                         </li>
 
                     <?php else: ?>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/login.php">Iniciar Sesión</a>
+                            <a class="nav-link" href="../pages/login.php"><i class="fa-solid fa-user"></i> Iniciar Sesión</a>
                         </li>
 
                     <?php endif; ?>
